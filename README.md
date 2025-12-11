@@ -55,4 +55,8 @@ This project is built with Python and Tkinter for the GUI.
 4.  **Build the executable:**
     ```bash
     pyinstaller --onefile --noconsole --icon="icon.ico" LCInstallation.py
+<<<<<<< HEAD
     ```
+=======
+    ```
+>>>>>>> c4eba841e1f07235878a41204fd8fde1ae9fd2be

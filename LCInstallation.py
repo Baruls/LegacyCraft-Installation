@@ -125,7 +125,7 @@ def handle_mods_install(progress_bar, status_label, root_window):
 def main_process_thread(progress_bar, status_label, root_window):
     try:
         version_installed = False
-        install_version_response = show_question("Install Minecraft Version?", "Do you want to install Fabric 1.21.~?")
+        install_version_response = show_question("Install Minecraft Version?", "Do you want to install Fabric 1.21.10?")
         if install_version_response == 6:
             if not handle_version_install(progress_bar, status_label, root_window):
                 root_window.destroy(); return
