@@ -41,7 +41,7 @@ def create_launcher_profile(status_label, root_window):
         status_label.config(text="Creating launcher profile...")
         root_window.update_idletasks()
         PROFILE_NAME = "LegacyCraft"
-        VERSION_ID = "fabric-loader-0.18.4-1.21.11"
+        VERSION_ID = "fabric-loader-0.19.3-26.1.2"
         PROFILE_ID = "legacycraft-profile-autogen"
         minecraft_folder = os.path.join(os.getenv('APPDATA'), '.minecraft')
         profiles_path = os.path.join(minecraft_folder, 'launcher_profiles.json')
@@ -73,18 +73,18 @@ def create_launcher_profile(status_label, root_window):
 
 def handle_version_install(progress_bar, status_label, root_window):
     versions_folder = os.path.join(os.getenv('APPDATA'), '.minecraft', 'versions')
-    target_version_folder = os.path.join(versions_folder, 'fabric-loader-0.18.4-1.21.11')
+    target_version_folder = os.path.join(versions_folder, 'fabric-loader-0.19.3-26.1.2')
     os.makedirs(versions_folder, exist_ok=True)
     if os.path.exists(target_version_folder):
-        replace_response = show_question("Version Found", "Minecraft version 'fabric-loader-0.18.4-1.21.11' already exists.\n\nDo you want to replace it?")
+        replace_response = show_question("Version Found", "Minecraft version 'fabric-loader-0.19.3-26.1.2' already exists.\n\nDo you want to replace it?")
         if replace_response == 6:
             shutil.rmtree(target_version_folder)
         else:
             return True
     os.makedirs(target_version_folder)
     version_files_to_download = {
-        'fabric-loader-0.18.4-1.21.11.jar': 'https://raw.githubusercontent.com/Baruls/LegacyCraftInstallation/main/versions/fabric.jar',
-        'fabric-loader-0.18.4-1.21.11.json': 'https://raw.githubusercontent.com/Baruls/LegacyCraftInstallation/main/versions/fabric.json'
+        'fabric-loader-0.19.3-26.1.2.jar': 'https://raw.githubusercontent.com/Baruls/LegacyCraftInstallation/main/versions/fabric.jar',
+        'fabric-loader-0.19.3-26.1.2.json': 'https://raw.githubusercontent.com/Baruls/LegacyCraftInstallation/main/versions/fabric.json'
     }
     for filename, url in version_files_to_download.items():
         status_label.config(text=f"Downloading version file: {filename}...")
@@ -125,7 +125,7 @@ def handle_mods_install(progress_bar, status_label, root_window):
 def main_process_thread(progress_bar, status_label, root_window):
     try:
         version_installed = False
-        install_version_response = show_question("Install Minecraft Version?", "Do you want to install Fabric 1.21.11?")
+        install_version_response = show_question("Install Minecraft Version?", "Do you want to install Fabric 26.1.2?")
         if install_version_response == 6:
             if not handle_version_install(progress_bar, status_label, root_window):
                 root_window.destroy(); return
